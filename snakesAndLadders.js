@@ -36,7 +36,7 @@ var dieRoll = function() {
 };
 
 /*
- * Determine if a square is a snake. As per the requirements, a snake
+ * Determine if a square is a snake. A snake
  * square is either on 25 or 55.
  * 
  * @param pos {integer} The current position of the piece. Not using the global 
@@ -49,7 +49,7 @@ var isSnakeSquare = function(pos) {
 };
 
 /*
- * Determine if a square is a ladder. As per the requirements, a ladder
+ * Determine if a square is a ladder. A ladder
  * square is either on 25 or 55.
  * 
  * @param pos {integer} The current position of the piece.
@@ -62,7 +62,7 @@ var isLadderSquare = function(pos) {
 
 /*
  * Updates the position of the die, and returns the square type string.
- * "snake, "ladder" or an empty string "" as per the requirements
+ * "snake, "ladder" or an empty string ""."
  * 
  * @param  roll {integer} The dice roll
  * @return type {string} The type of square
