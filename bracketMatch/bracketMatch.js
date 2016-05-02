@@ -1,41 +1,64 @@
 (function () {
-  var values = ["[{){(}[]", "[]{}[()]", "({({[}])})", "{{[)({}{}", "[[[]]}{"],
+  var values = ["[()]", "[{){(}[]", "[]{}[()]", "({({[}])})", "{{[)({}{}", "[[[]]}{"],
     output = [],
-    bracketsMatch = false,
-    parenthesesMatch = false,
-    curlyBracesMatch = false;
+    valuesLength = values.length;
 
-  for (var i= 0; i < values.length; i++) {
+  for (var i = 0; i < valuesLength; i++) {
+    var characters = values[i].split(""),
+      numLeftBrace = 0,
+      numRightBrace = 0,
+      numLeftBracket = 0,
+      numRightBracket = 0,
+      numLeftParentheses = 0,
+      numRightParentheses = 0;
 
-    if (values[i].indexOf("{") != -1 && values[i].indexOf("}") != -1) {
-      var numLeftBrace = values[i].split("{").length - 1;
-      var numRightBrace = values[i].split("}").length - 1;
-      curlyBracesMatch = compareAmounts(numLeftBrace, numRightBrace);
+    for (j = 0; j < characters.length; j++) {
+      determineCount(characters[j]);
     }
 
-    if (values[i].indexOf("[") != -1 && values[i].indexOf("[") != -1) {
-      var numLeftBracket = values[i].split("]").length - 1;
-      var numRightBracket = values[i].split("[").length - 1;
-      bracketsMatch = compareAmounts(numLeftBracket, numRightBracket);
-    }
+    var bracesMatch = determineMatch(numLeftBrace, numRightBrace),
+        bracketsMatch = determineMatch(numLeftBracket, numRightBracket),
+        parenthesisMatch = determineMatch(numLeftParentheses, numRightParentheses);
 
-    if (values[i].indexOf("(") != -1 && values[i].indexOf(")") != -1) {
-      var numLeftParentheses = values[i].split("(").length - 1;
-      var numRightParentheses = values[i].split(")").length - 1;
-      parenthesesMatch = compareAmounts(numLeftParentheses, numRightParentheses);
-    }
+    addToAnswerArray(bracesMatch, bracketsMatch, parenthesisMatch);
+  }
 
-    if (bracketsMatch && parenthesesMatch && curlyBracesMatch) {
+  function determineCount(character) {
+    switch (character) {
+      case "{":
+        return numLeftBrace += 1;
+        break;
+      case "}":
+        return numRightBrace += 1;
+        break;
+      case "[":
+        return numLeftBracket += 1;
+        break;
+      case "]":
+        return numRightBracket += 1;
+        break;
+      case "(":
+        return numLeftParentheses += 1;
+        break;
+      case ")":
+        return numRightParentheses += 1;
+        break;
+    }
+  }
+
+  function determineMatch(toCompareLeft, toCompareRight) {
+    return toCompareLeft === toCompareRight;
+  }
+
+
+  function addToAnswerArray(bracesMatch, bracketsMatch, parenthesisMatch) {
+    if (bracesMatch && bracketsMatch && parenthesisMatch) {
       output.push("YES");
     } else {
       output.push("NO");
     }
-
-    function compareAmounts(Left, Right) {
-      return Left === Right;
-    }
-
   }
-  console.log(values);
-  console.log(output);
+
+
+  console.log("Output: ", output);
 })();
