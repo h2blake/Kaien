@@ -1,5 +1,7 @@
 # Code samples
 
+This is a repo which shows small example projects.
+
 ## Wording
 
 This is a sample project based on a fictitious mobile word processing app called "Wording". It's designed to be optimized for all screen sizes from mobile to desktop.  To test out the responsiveness, resize the browser window with the live example located here: 
@@ -18,3 +20,7 @@ This is a sample project written in Vanilla JS that emulates the game "Snakes an
 View a working example via this plnkr link and clicking 'Run'. 
 
 	https://plnkr.co/edit/nKXhdyfxKxYl12ytYCpN
+
+##  Bracket Match
+
+This is a sample script which takes an array holding several sets of characters comprised of brackets [], parentheses (), and curly braces {}. If each opening character has a corresponding closing character, it is a valid match. If all characters in a given set are considered matching, the set is considered valid. After all sets are compared, an array is sent to console with "YES" for each matching set or and "NO" for each set which was not valid.
