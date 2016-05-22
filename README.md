@@ -24,3 +24,7 @@ View a working example via this plnkr link and clicking 'Run'.
 ##  Bracket Match
 
 This is a sample script which takes an array holding several sets of characters comprised of brackets [], parentheses (), and curly braces {}. If each opening character has a corresponding closing character, it is a valid match. If all characters in a given set are considered matching, the set is considered valid. After all sets are compared, an array is sent to console with "YES" for each matching set or and "NO" for each set which was not valid.
+
+##  Secret Santa
+
+This is a small script which imitates the holiday game "Secret  Santa", where, from a group of names, each person is assigned someone to give a gift to. The goal is for each person to give and receive exactly one gift and that person shouldn't be able to give to themselves. At the end of script execution, a list is given which indicates the giver and the recipient. 
